@@ -1,3 +1,4 @@
+import {getJSON, postJSON} from "@ajax";
 import {Epic, ofType} from "redux-observable";
 import {combineLatest, of} from "rxjs";
 import {catchError, map, switchMap, withLatestFrom} from "rxjs/operators";
@@ -8,7 +9,7 @@ import {createdOffer, createdOfferFailure, createOffer} from "../modules/offer";
     shippingCosts: number;
 }*/
 
-export const createOfferFromCardEpic$: Epic = (action$, state$, {getJSON, postJSON}) => action$.pipe(
+export const createOfferFromCardEpic$: Epic = (action$, state$) => action$.pipe(
     ofType(createOffer.toString()),
     withLatestFrom(state$),
     switchMap(([action, state]) => combineLatest(

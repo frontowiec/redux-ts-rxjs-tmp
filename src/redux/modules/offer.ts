@@ -4,12 +4,12 @@ import {Dispatch} from "redux";
 import {createActions, handleActions} from "redux-actions";
 import {createStandardAction} from "typesafe-actions";
 
-enum OfferStatus {
+export enum OfferStatus {
     ACCEPTED = 'accepted',
     REJECTED = 'rejected'
 }
 
-interface Offer {
+export interface Offer {
     id: string;
     cardId: string;
     rebate: number;

@@ -1,4 +1,4 @@
-export {Action} from './Action';
+export {Action} from './types/Action';
 export {generateCardItem} from './generateCardItem';
 export {handleActions} from './handleActions';
-export {StandardEpic} from './StandardEpic';
+export {StandardEpic} from './types/StandardEpic';

@@ -96,7 +96,8 @@
       "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|ts|tsx)$"
     ],
     "moduleNameMapper": {
-      "^react-native$": "react-native-web"
+      "^@redux/(.*)$": "<rootDir>/src/redux/$1",
+      "^@ajax$": "<rootDir>/src/ajax/index.ts"
     },
     "moduleFileExtensions": [
       "web.ts",
@@ -113,7 +114,7 @@
     ],
     "globals": {
       "ts-jest": {
-        "tsConfigFile": "/home/marcin/WebstormProjects/usunmnie/tsconfig.test.json"
+        "tsConfigFile": "/home/marcin/WebstormProjects/how-i-do-it/tsconfig.test.json"
       }
     }
   },

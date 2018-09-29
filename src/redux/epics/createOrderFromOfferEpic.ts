@@ -23,12 +23,12 @@ import {
 // typujemy akcje wyjściową
 
 // todo: czy opłaca się wstrzykiwać zależności ?
-const createOrderWhenOfferWasAccepted$: StandardEpic<ActionType<typeof acceptedOffer>> = action$ => action$.pipe(
+export const createOrderWhenOfferWasAccepted$: StandardEpic<ActionType<typeof acceptedOffer>> = action$ => action$.pipe(
     ofType(getType(acceptedOffer)),
     map(({payload}) => createOrder({offerId: payload}))
 );
 
-const createOrder$: StandardEpic<ActionType<typeof createOrder>> = (action$, state$) => action$.pipe(
+export const createOrder$: StandardEpic<ActionType<typeof createOrder>> = (action$, state$) => action$.pipe(
     ofType(getType(createOrder)),
     withLatestFrom(state$),
     switchMap(([{payload}, {purchaser}]) => postJSON<{ order: Order }>(`${purchaser.id}/order`, {offerId: payload.offerId}).pipe(
@@ -37,7 +37,7 @@ const createOrder$: StandardEpic<ActionType<typeof createOrder>> = (action$, sta
     ))
 );
 
-const checkIfOrderChangeStatus$: StandardEpic<Action<string>> = (action$, state$) => action$.pipe(
+export const checkIfOrderChangeStatus$: StandardEpic<Action<string>> = (action$, state$) => action$.pipe(
     ofType(getType(checkOrderStatus), getType(createdStatusOrder), getType(inProgressStatusOrder)),
     withLatestFrom(state$),
     filter(([{payload}, {order}]) => order[payload].status !== OrderStatus.COMPLETED),

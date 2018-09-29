@@ -1,7 +1,7 @@
+import {postJSON} from "@ajax";
+import {Action} from "@redux/utilities";
 import {Dispatch} from "redux";
 import {createActions, handleActions} from "redux-actions";
-import {postJSON} from "../../ajax";
-import {Action} from '../helpers';
 
 export interface Item {
     id: string;

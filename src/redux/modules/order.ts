@@ -32,14 +32,6 @@ export const {createOrder, createdOrder, createdOrderFailure, checkOrderStatus, 
     checkOrderStatusFailure: createStandardAction('CHECK_ORDER_STATUS_FAILURE')<unknown>()
 };
 
-/*export const reducer = (state: OrderState, action: unknown) => {
-    switch (action.type) {
-        case getType(createdOrder) {
-            console.log(action.payload)
-        }
-    }
-};*/
-
 // todo: wypnij metodę handleActions do własnego helpera
 export default handleActions<OrderState, unknown>({
     [getType(createdOrder)]: (state, {payload}: ActionType<typeof createdOrder>) => ({...state, [payload.id]: payload}),
@@ -52,3 +44,21 @@ export default handleActions<OrderState, unknown>({
 
 const changeOrderStatus = (orderId: string, status: OrderStatus, state: OrderState): OrderState =>
     ({...state, [orderId!]: {...state[orderId!], status}});
+
+/*interface PLAYLISTS_LOADED extends Action<"PLAYLISTS_LOADED"> {
+    payload: Order;
+}
+interface PLAYLIST_SELECTED extends Action<"PLAYLIST_SELECTED"> {
+    payload: string;
+}
+
+type Actions =
+    | PLAYLISTS_LOADED
+    | PLAYLIST_SELECTED;*/
+
+/*
+const reducer = handleActions<OrderState, Actions>({
+    ['PLAYLISTS_LOADED']: (state, {payload}) => ({...state, '2': payload}),
+    ['PLAYLIST_SELECTED']: (state) => state,
+    ['DUPA']: (state) => state
+}, initialState);*/

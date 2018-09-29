@@ -1,7 +1,7 @@
 import {postJSON} from "@ajax";
 import {Action} from "@redux/utilities";
 import {Dispatch} from "redux";
-import {createActions, handleActions} from "redux-actions";
+import {handleActions} from "redux-actions";
 import {createStandardAction} from "typesafe-actions";
 
 export enum OfferStatus {
@@ -24,17 +24,16 @@ export interface OfferState {
 
 const initialState: OfferState = {};
 
-export const {createOffer, createdOffer, createdOfferFailure, acceptedOfferFailure, rejectedOffer, rejectedOfferFailure} =
-    createActions(
-        'CREATE_OFFER',
-        'CREATED_OFFER',
-        'CREATED_OFFER_FAILURE',
-        'ACCEPTED_OFFER_FAILURE',
-        'REJECTED_OFFER',
-        'REJECTED_OFFER_FAILURE'
-    );
-
-export const acceptedOffer = createStandardAction('ACCEPTED_OFFER')<string>();
+export const {createOffer, createdOffer, createdOfferFailure, acceptedOffer, acceptedOfferFailure, rejectedOffer, rejectedOfferFailure} =
+    {
+        createOffer: createStandardAction('CREATE_OFFER')(),
+        createdOffer: createStandardAction('CREATED_OFFER')<Offer>(),
+        createdOfferFailure: createStandardAction('CREATED_OFFER_FAILURE')<unknown>(),
+        acceptedOffer: createStandardAction('ACCEPTED_OFFER')<string>(),
+        acceptedOfferFailure: createStandardAction('ACCEPTED_OFFER_FAILURE')<unknown>(),
+        rejectedOffer: createStandardAction('REJECTED_OFFER')<string>(),
+        rejectedOfferFailure: createStandardAction('REJECTED_OFFER_FAILURE')<unknown>()
+    };
 
 export const acceptOfferRequest = (offerId: string, purchaserId: string): any => (dispatch: Dispatch) => {
     postJSON(`${purchaserId}/offer/${offerId}/accept`, {}).toPromise()

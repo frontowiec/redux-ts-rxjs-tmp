@@ -15,13 +15,13 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/how_i_do_it$All_tests.dat" NAME="All tests Coverage Results" MODIFIED="1538240639017" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="JestJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/how_i_do_it$All_tests.dat" NAME="All tests Coverage Results" MODIFIED="1538241387422" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="JestJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="CoverageOptionsProvider">
     <option name="myActivateViewOnRun" value="false" />
   </component>
   <component name="CoverageViewManager">
-    <option name="myElementSize" value="75" />
+    <option name="myElementSize" value="283" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="968143836">
@@ -93,7 +93,7 @@
         <counts>
           <entry key="gitignore" value="17" />
           <entry key="json" value="141" />
-          <entry key="ts" value="6908" />
+          <entry key="ts" value="7077" />
           <entry key="tsx" value="48" />
         </counts>
       </usages-collector>
@@ -101,7 +101,7 @@
         <counts>
           <entry key="JSON" value="65" />
           <entry key="PLAIN_TEXT" value="17" />
-          <entry key="TypeScript" value="6908" />
+          <entry key="TypeScript" value="7077" />
           <entry key="TypeScript JSX" value="48" />
           <entry key="tsconfig" value="76" />
         </counts>
@@ -111,7 +111,7 @@
           <entry key="gitignore" value="2" />
           <entry key="js" value="1" />
           <entry key="json" value="13" />
-          <entry key="ts" value="105" />
+          <entry key="ts" value="106" />
           <entry key="tsx" value="2" />
         </counts>
       </usages-collector>
@@ -120,7 +120,7 @@
           <entry key="JSON" value="8" />
           <entry key="JavaScript" value="1" />
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="TypeScript" value="105" />
+          <entry key="TypeScript" value="106" />
           <entry key="TypeScript JSX" value="2" />
           <entry key="tsconfig" value="5" />
         </counts>
@@ -143,13 +143,25 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/redux/epics/createOfferFromCardEpic.test.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="512">
-                  <caret line="54" column="55" selection-start-line="54" selection-start-column="55" selection-end-line="54" selection-end-column="55" />
+                <state relative-caret-position="407">
+                  <caret line="52" column="68" lean-forward="true" selection-start-line="52" selection-start-column="68" selection-end-line="52" selection-end-column="68" />
                   <folding>
                     <element signature="e#0#30#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/redux/modules/offer.ts">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="438">
+                  <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
+                  <folding>
+                    <element signature="e#0#31#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -171,22 +183,10 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/redux/epics/createOfferFromCardEpic.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="345">
-                  <caret line="23" column="56" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="56" />
+                <state relative-caret-position="195">
+                  <caret line="13" column="16" lean-forward="true" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
                   <folding>
                     <element signature="e#0#40#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/redux/modules/offer.ts">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="365">
-                  <caret line="40" column="42" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="42" />
-                  <folding>
-                    <element signature="e#0#31#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -267,9 +267,9 @@
         <option value="$PROJECT_DIR$/src/tests/map.test.ts" />
         <option value="$PROJECT_DIR$/src/tests/switchMap.test.ts" />
         <option value="$PROJECT_DIR$/src/redux/epics/createOrderFromOfferEpic.test.ts" />
-        <option value="$PROJECT_DIR$/src/redux/modules/offer.ts" />
         <option value="$PROJECT_DIR$/src/redux/epics/createOfferFromCardEpic.ts" />
         <option value="$PROJECT_DIR$/src/redux/epics/createOfferFromCardEpic.test.ts" />
+        <option value="$PROJECT_DIR$/src/redux/modules/offer.ts" />
       </list>
     </option>
   </component>
@@ -427,17 +427,11 @@
       <workItem from="1537896924931" duration="7410000" />
       <workItem from="1537981793096" duration="9340000" />
       <workItem from="1538209386148" duration="855000" />
-      <workItem from="1538215597123" duration="23457000" />
+      <workItem from="1538215597123" duration="23812000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_tests - 2018.09.29 at 18h 54m 17s.xml">
-      <configuration name="All tests" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-    <history-entry file="All_tests - 2018.09.29 at 18h 59m 08s.xml">
-      <configuration name="All tests" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
     <history-entry file="All_tests - 2018.09.29 at 18h 59m 21s.xml">
       <configuration name="All tests" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
@@ -462,9 +456,15 @@
     <history-entry file="All_tests - 2018.09.29 at 19h 03m 58s.xml">
       <configuration name="All tests" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
+    <history-entry file="All_tests - 2018.09.29 at 19h 08m 30s.xml">
+      <configuration name="All tests" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="All_tests - 2018.09.29 at 19h 10m 00s.xml">
+      <configuration name="All tests" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70918000" />
+    <option name="totallyTimeSpent" value="71273000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
@@ -476,7 +476,7 @@
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32985386" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.34728032" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.34728032" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39979124" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -830,16 +830,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/modules/offer.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="40" column="42" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/redux/epics/createOrderFromOfferEpic.test.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -850,22 +840,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/epics/createOfferFromCardEpic.test.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="52" column="68" lean-forward="true" selection-start-line="52" selection-start-column="68" selection-end-line="52" selection-end-column="68" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/redux/epics/createOfferFromCardEpic.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="56" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="56" />
+        <state relative-caret-position="195">
+          <caret line="13" column="16" lean-forward="true" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/epics/createOfferFromCardEpic.test.ts">
+    <entry file="file://$PROJECT_DIR$/src/redux/modules/offer.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="54" column="55" selection-start-line="54" selection-start-column="55" selection-end-line="54" selection-end-column="55" />
+        <state relative-caret-position="438">
+          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
           <folding>
-            <element signature="e#0#30#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>

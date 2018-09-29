@@ -1,24 +1,21 @@
 import {getJSON, postJSON} from "@ajax";
-import {Epic, ofType} from "redux-observable";
+import {StandardEpic} from "@redux/utilities";
+import {ofType} from "redux-observable";
 import {combineLatest, of} from "rxjs";
 import {catchError, map, switchMap, withLatestFrom} from "rxjs/operators";
-import {createdOffer, createdOfferFailure, createOffer} from "../modules/offer";
+import {getType} from "typesafe-actions";
+import {createdOffer, createdOfferFailure, createOffer, Offer} from "../modules/offer";
 
-/*interface CreateOfferBody {
-    rebate: number;
-    shippingCosts: number;
-}*/
-
-export const createOfferFromCardEpic$: Epic = (action$, state$) => action$.pipe(
-    ofType(createOffer.toString()),
+export const createOfferFromCardEpic$: StandardEpic = (action$, state$) => action$.pipe(
+    ofType(getType(createOffer)),
     withLatestFrom(state$),
-    switchMap(([action, state]) => combineLatest(
-        of({cardId: state.card.id, purchaserId: state.purchaser.id}),
-        getJSON(`${state.purchaser.id}/card/${state.card.id}/calculateRebate`),
-        getJSON(`${state.purchaser.id}/card/${state.card.id}/calculateShippingCosts`)
+    switchMap(([action, {card, purchaser}]) => combineLatest(
+        of({cardId: card.id, purchaserId: purchaser.id}),
+        getJSON<{rebate: number}>(`${purchaser.id}/card/${card.id}/calculateRebate`),
+        getJSON<{shippingCosts: number}>(`${purchaser.id}/card/${card.id}/calculateShippingCosts`)
     )),
-    switchMap(([{cardId, purchaserId}, {rebate}, {shippingCosts}]: any) =>
-        postJSON(`${purchaserId}/card/${cardId}/offer`, {rebate, shippingCosts})
+    switchMap(([{cardId, purchaserId}, {rebate}, {shippingCosts}]) =>
+        postJSON<Offer>(`${purchaserId}/card/${cardId}/offer`, {rebate, shippingCosts})
             .pipe(
                 map(offer => createdOffer(offer)),
                 catchError(err => of(createdOfferFailure(err)))

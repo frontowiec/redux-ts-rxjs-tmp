@@ -1,7 +1,11 @@
 import {map} from "rxjs/operators";
-import {scheduler} from "./scheduler";
+import {TestScheduler} from "rxjs/testing";
 
 it('map', () => {
+    const scheduler = new TestScheduler((actual, expected) => {
+        expect(actual).toEqual(expected);
+    });
+
     scheduler.run(helpers => {
         const {cold, expectObservable} = helpers;
 

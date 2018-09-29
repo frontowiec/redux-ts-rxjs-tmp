@@ -1,8 +1,12 @@
 import {map, switchMap} from "rxjs/operators";
-import {scheduler} from "./scheduler";
+import {TestScheduler} from "rxjs/testing";
 
 describe('SwitchMap', () => {
     it('should maps each value to inner obervable and flattens', () => {
+        const scheduler = new TestScheduler((actual, expected) => {
+            expect(actual).toEqual(expected);
+        });
+
         scheduler.run(helpers => {
             const {cold, expectObservable} = helpers;
             const values = {a: 10, b: 30, x: 20, y: 40};

@@ -22,13 +22,12 @@ import {
 // 2. Gdy nasz epik jest wejście do innego epiku wtedy jako drugi parametr w generuku
 // typujemy akcje wyjściową
 
-// todo: czy opłaca się wstrzykiwać zależności ?
-export const createOrderWhenOfferWasAccepted$: StandardEpic<ActionType<typeof acceptedOffer>> = action$ => action$.pipe(
+const createOrderWhenOfferWasAccepted$: StandardEpic<ActionType<typeof acceptedOffer>> = action$ => action$.pipe(
     ofType(getType(acceptedOffer)),
     map(({payload}) => createOrder({offerId: payload}))
 );
 
-export const createOrder$: StandardEpic<ActionType<typeof createOrder>> = (action$, state$) => action$.pipe(
+const createOrder$: StandardEpic<ActionType<typeof createOrder>> = (action$, state$) => action$.pipe(
     ofType(getType(createOrder)),
     withLatestFrom(state$),
     switchMap(([{payload}, {purchaser}]) => postJSON<{ order: Order }>(`${purchaser.id}/order`, {offerId: payload.offerId}).pipe(
@@ -37,7 +36,7 @@ export const createOrder$: StandardEpic<ActionType<typeof createOrder>> = (actio
     ))
 );
 
-export const checkIfOrderChangeStatus$: StandardEpic<Action<string>> = (action$, state$) => action$.pipe(
+const checkIfOrderChangeStatus$: StandardEpic<Action<string>> = (action$, state$) => action$.pipe(
     ofType(getType(checkOrderStatus), getType(createdStatusOrder), getType(inProgressStatusOrder)),
     withLatestFrom(state$),
     filter(([{payload}, {order}]) => order[payload].status !== OrderStatus.COMPLETED),

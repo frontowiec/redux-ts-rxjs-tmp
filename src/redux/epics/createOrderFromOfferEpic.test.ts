@@ -1,40 +1,44 @@
 import * as ajax from '@ajax';
-import {
-    checkIfOrderChangeStatus$,
-    createOrder$,
-    createOrderWhenOfferWasAccepted$
-} from "@redux/epics/createOrderFromOfferEpic";
+import {createOrderFromOffer$} from "@redux/epics/createOrderFromOfferEpic";
 import {acceptedOffer} from "@redux/modules/offer";
 import {
-    checkOrderStatus, completedStatusOrder,
-    createdOrder,
+    checkOrderStatus, checkOrderStatusFailure,
+    completedStatusOrder,
+    createdOrder, createdOrderFailure,
     createdStatusOrder,
-    createOrder,
+    createOrder, inProgressStatusOrder,
     Order,
     OrderStatus
 } from "@redux/modules/order";
-import {of} from "rxjs";
-import {scheduler} from "../../tests/scheduler";
-
-// czy wszystkie strumienie opisywać przez cold lub hot ?
+import {of, throwError} from "rxjs";
+import {TestScheduler} from "rxjs/testing";
 
 it('should create order after accepting offer', () => {
+    const scheduler = new TestScheduler((actual, expected) => {
+        expect(actual).toEqual(expected);
+    });
+
     scheduler.run(helpers => {
-        const {cold, expectObservable} = helpers;
+        const {hot, expectObservable} = helpers;
+
+        const state: any = of({});
 
         const values = {
             a: acceptedOffer('123'),
             x: createOrder({offerId: '123'})
         };
-        const source: any = cold('-a', values);
-        const state: any = {};
+        const source: any = hot('-a', values);
 
-        const result = createOrderWhenOfferWasAccepted$(source, state, {});
+        const result = createOrderFromOffer$(source, state, {});
         expectObservable(result).toBe("-x", values)
     });
 });
 
 it('should create order', () => {
+    const scheduler = new TestScheduler((actual, expected) => {
+        expect(actual).toEqual(expected);
+    });
+
     scheduler.run(helpers => {
         const {cold, hot, expectObservable} = helpers;
         const order: Order = {
@@ -55,12 +59,45 @@ it('should create order', () => {
         const source: any = hot('-a', values);
         const state: any = of({purchaser: {id: '321'}});
 
-        const result = createOrder$(source, state, {});
-        expectObservable(result).toBe("---(xy)", values);
+        const result = createOrderFromOffer$(source, state, {});
+        expectObservable(result).toBe("--(xy)", values);
+    });
+});
+
+it('should check order status if order status was created', () => {
+    const scheduler = new TestScheduler((actual, expected) => {
+        expect(actual).toEqual(expected);
+    });
+
+    scheduler.run(helpers => {
+        const {cold, hot, expectObservable} = helpers;
+        const orderInCreatedStatus: Order = {
+            id: '1',
+            offerId: '123',
+            status: OrderStatus.CREATED,
+            purchaserId: '321',
+        };
+
+        // @ts-ignore
+        ajax.getJSON = () => cold('-a', {a: {order: orderInCreatedStatus}});
+
+        const values = {
+            a: createdStatusOrder('1'),
+            x: checkOrderStatus('1')
+        };
+        const source: any = hot('-a', values);
+        const state: any = of({purchaser: {id: '321'}, order: {'1': orderInCreatedStatus}});
+
+        const result = createOrderFromOffer$(source, state, {});
+        expectObservable(result).toBe("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------x", values);
     });
 });
 
 it('should check order status', () => {
+    const scheduler = new TestScheduler((actual, expected) => {
+        expect(actual).toEqual(expected);
+    });
+
     scheduler.run(helpers => {
         const {cold, hot, expectObservable} = helpers;
         const orderInProgress: Order = {
@@ -86,7 +123,87 @@ it('should check order status', () => {
         const source: any = hot('-a', values);
         const state: any = of({purchaser: {id: '321'}, order: {'1': orderInProgress}});
 
-        const result = checkIfOrderChangeStatus$(source, state, {});
-        expectObservable(result).toBe("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------x", values);
+        const result = createOrderFromOffer$(source, state, {});
+        expectObservable(result).toBe("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------x", values);
+    });
+});
+
+it('should check order status if order status is in progress', () => {
+    const scheduler = new TestScheduler((actual, expected) => {
+        expect(actual).toEqual(expected);
+    });
+
+    scheduler.run(helpers => {
+        const {cold, hot, expectObservable} = helpers;
+        const orderInProgress: Order = {
+            id: '1',
+            offerId: '123',
+            status: OrderStatus.IN_PROGRESS,
+            purchaserId: '321',
+        };
+
+        // @ts-ignore
+        ajax.getJSON = () => cold('-a', {a: {order: orderInProgress}});
+
+        const values = {
+            a: checkOrderStatus('1'),
+            x: inProgressStatusOrder('1')
+        };
+        const source: any = hot('-a', values);
+        const state: any = of({purchaser: {id: '321'}, order: {'1': orderInProgress}});
+
+        const result = createOrderFromOffer$(source, state, {});
+        expectObservable(result).toBe("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------x", values);
+    });
+});
+
+it('should dispatch event on created action failure', () => {
+    const scheduler = new TestScheduler((actual, expected) => {
+        expect(actual).toEqual(expected);
+    });
+
+    scheduler.run(helpers => {
+        const {hot, expectObservable} = helpers;
+        // @ts-ignore
+        ajax.postJSON = () => throwError({});
+
+        const values = {
+            a: createOrder({offerId: '123'}),
+            x: createdOrderFailure({})
+        };
+        const source: any = hot('-a', values);
+        const state: any = of({purchaser: {id: '321'}});
+
+        const result = createOrderFromOffer$(source, state, {});
+        expectObservable(result).toBe("-x", values);
+    });
+});
+
+it('should dispatch event on check order status failure', () => {
+    const scheduler = new TestScheduler((actual, expected) => {
+        expect(actual).toEqual(expected);
+    });
+
+    scheduler.run(helpers => {
+        const {hot, expectObservable} = helpers;
+        const orderInProgress: Order = {
+            id: '1',
+            offerId: '123',
+            status: OrderStatus.IN_PROGRESS,
+            purchaserId: '321',
+        };
+
+        // @ts-ignore
+        ajax.getJSON = () => throwError({});
+
+        const values = {
+            a: checkOrderStatus('1'),
+            x: checkOrderStatusFailure({})
+        };
+        const source: any = hot('-a', values);
+        const state: any = of({purchaser: {id: '321'}, order: {'1': orderInProgress}});
+
+        const result = createOrderFromOffer$(source, state, {});
+        expectObservable(result).toBe("-x", values);
     });
 });

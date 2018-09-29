@@ -2,16 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="01cde406-8ca4-4fe3-a59c-c323dd292bb8" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.test.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/epics/createOrderFromOfferEpic.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/epics/createOrderFromOfferEpic.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/epics/createOrderFromOfferEpic.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/epics/createOrderFromOfferEpic.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/modules/card.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/modules/card.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/modules/order.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/modules/order.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/utilities/Action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/utilities/types/Action.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/utilities/StandardEpic.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/utilities/types/StandardEpic.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/utilities/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/utilities/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/map.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/map.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/scheduler.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/switchMap.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/switchMap.test.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,6 +17,15 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/how_i_do_it$All_tests.dat" NAME="All tests Coverage Results" MODIFIED="1538239221497" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="JestJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+  <component name="CoverageOptionsProvider">
+    <option name="myActivateViewOnRun" value="false" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="75" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="968143836">
@@ -92,7 +97,7 @@
         <counts>
           <entry key="gitignore" value="17" />
           <entry key="json" value="141" />
-          <entry key="ts" value="4848" />
+          <entry key="ts" value="5884" />
           <entry key="tsx" value="48" />
         </counts>
       </usages-collector>
@@ -100,7 +105,7 @@
         <counts>
           <entry key="JSON" value="65" />
           <entry key="PLAIN_TEXT" value="17" />
-          <entry key="TypeScript" value="4848" />
+          <entry key="TypeScript" value="5884" />
           <entry key="TypeScript JSX" value="48" />
           <entry key="tsconfig" value="76" />
         </counts>
@@ -110,7 +115,7 @@
           <entry key="gitignore" value="2" />
           <entry key="js" value="1" />
           <entry key="json" value="13" />
-          <entry key="ts" value="95" />
+          <entry key="ts" value="101" />
           <entry key="tsx" value="2" />
         </counts>
       </usages-collector>
@@ -119,7 +124,7 @@
           <entry key="JSON" value="8" />
           <entry key="JavaScript" value="1" />
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="TypeScript" value="95" />
+          <entry key="TypeScript" value="101" />
           <entry key="TypeScript JSX" value="2" />
           <entry key="tsconfig" value="5" />
         </counts>
@@ -133,12 +138,10 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/redux/epics/createOrderFromOfferEpic.test.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="452">
-                  <caret line="90" column="81" selection-start-line="90" selection-start-column="81" selection-end-line="90" selection-end-column="81" />
+                <state relative-caret-position="78">
+                  <caret line="77" column="31" lean-forward="true" selection-start-line="77" selection-start-column="31" selection-end-line="77" selection-end-column="31" />
                   <folding>
                     <element signature="e#0#30#0" expanded="true" />
-                    <element signature="e#608#1027#0" />
-                    <element signature="e#785#1204#0" />
                   </folding>
                 </state>
               </provider>
@@ -151,8 +154,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/redux/epics/createOrderFromOfferEpic.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="303">
-                  <caret line="49" selection-start-line="49" selection-end-line="49" />
+                <state relative-caret-position="333">
+                  <caret line="50" column="35" selection-start-line="50" selection-start-column="19" selection-end-line="50" selection-end-column="35" />
                   <folding>
                     <element signature="e#0#40#0" expanded="true" />
                   </folding>
@@ -198,6 +201,8 @@
       <find>payload</find>
       <find>order</find>
       <find>usun</find>
+      <find>checkOrderStatus</find>
+      <find>createdOrder</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -206,10 +211,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/tests/map.test.ts" />
         <option value="$PROJECT_DIR$/src/tests/scheduler.ts" />
         <option value="$PROJECT_DIR$/src/tests/switchMap.ts" />
-        <option value="$PROJECT_DIR$/src/tests/switchMap.test.ts" />
         <option value="$PROJECT_DIR$/node_modules/@types/react-redux/index.d.ts" />
         <option value="$PROJECT_DIR$/src/index.tsx" />
         <option value="$PROJECT_DIR$/src/redux/modules/addToOrderEpic.ts" />
@@ -242,6 +245,8 @@
         <option value="$PROJECT_DIR$/src/redux/utilities/types/StandardEpic.ts" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/redux/epics/createOrderFromOfferEpic.ts" />
+        <option value="$PROJECT_DIR$/src/tests/map.test.ts" />
+        <option value="$PROJECT_DIR$/src/tests/switchMap.test.ts" />
         <option value="$PROJECT_DIR$/src/redux/epics/createOrderFromOfferEpic.test.ts" />
       </list>
     </option>
@@ -289,6 +294,24 @@
             <path>
               <item name="how-i-do-it" type="b2602c69:ProjectViewProjectNode" />
               <item name="how-i-do-it" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="how-i-do-it" type="b2602c69:ProjectViewProjectNode" />
+              <item name="how-i-do-it" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="rxjs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="how-i-do-it" type="b2602c69:ProjectViewProjectNode" />
+              <item name="how-i-do-it" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="rxjs" type="462c0819:PsiDirectoryNode" />
+              <item name="testing" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="how-i-do-it" type="b2602c69:ProjectViewProjectNode" />
+              <item name="how-i-do-it" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -302,6 +325,13 @@
               <item name="how-i-do-it" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="redux" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="how-i-do-it" type="b2602c69:ProjectViewProjectNode" />
+              <item name="how-i-do-it" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="redux" type="462c0819:PsiDirectoryNode" />
+              <item name="epics" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -323,7 +353,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="settings.javascript.linters.tslint" />
+    <property name="settings.editor.selected.configurable" value="coverage" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="typescript-compiler-editor-notification" value="false" />
   </component>
@@ -375,50 +405,50 @@
       <workItem from="1537896924931" duration="7410000" />
       <workItem from="1537981793096" duration="9340000" />
       <workItem from="1538209386148" duration="855000" />
-      <workItem from="1538215597123" duration="17463000" />
+      <workItem from="1538215597123" duration="21936000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_tests - 2018.09.29 at 16h 59m 49s.xml">
+    <history-entry file="All_tests - 2018.09.29 at 18h 30m 43s.xml">
       <configuration name="All tests" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="All_tests - 2018.09.29 at 17h 00m 08s.xml">
+    <history-entry file="All_tests - 2018.09.29 at 18h 31m 13s.xml">
       <configuration name="All tests" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="All_tests - 2018.09.29 at 17h 00m 24s.xml">
+    <history-entry file="All_tests - 2018.09.29 at 18h 31m 26s.xml">
       <configuration name="All tests" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="All_tests - 2018.09.29 at 17h 00m 42s.xml">
+    <history-entry file="All_tests - 2018.09.29 at 18h 31m 36s.xml">
       <configuration name="All tests" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="All_tests - 2018.09.29 at 17h 01m 25s.xml">
+    <history-entry file="All_tests - 2018.09.29 at 18h 33m 28s.xml">
       <configuration name="All tests" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="All_tests - 2018.09.29 at 17h 02m 33s.xml">
+    <history-entry file="All_tests - 2018.09.29 at 18h 33m 41s.xml">
       <configuration name="All tests" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="All_tests - 2018.09.29 at 17h 02m 40s.xml">
+    <history-entry file="All_tests - 2018.09.29 at 18h 38m 19s.xml">
       <configuration name="All tests" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="All_tests - 2018.09.29 at 17h 02m 50s.xml">
+    <history-entry file="All_tests - 2018.09.29 at 18h 39m 33s.xml">
       <configuration name="All tests" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="All_tests - 2018.09.29 at 17h 03m 16s.xml">
+    <history-entry file="All_tests - 2018.09.29 at 18h 39m 59s.xml">
       <configuration name="All tests" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="All_tests - 2018.09.29 at 17h 04m 00s.xml">
+    <history-entry file="All_tests - 2018.09.29 at 18h 40m 21s.xml">
       <configuration name="All tests" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64924000" />
+    <option name="totallyTimeSpent" value="69397000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.2498618" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -435,6 +465,7 @@
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.2703549" />
       <window_info anchor="bottom" id="Quokka" order="12" />
+      <window_info anchor="right" id="Coverage" side_tool="true" weight="0.32946378" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -446,51 +477,11 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/redux/epics/createOrderFromOfferEpic.test.ts</url>
-          <line>21</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/rxjs/src/internal/testing/TestScheduler.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="126" column="10" selection-start-line="126" selection-start-column="6" selection-end-line="126" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/scheduler.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="56" selection-start-line="3" selection-start-column="56" selection-end-line="3" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/rxjs/internal/observable/dom/AjaxObservable.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="21" column="18" lean-forward="true" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/@types/react-notification-system-redux/index.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/switchMap.test.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="3" lean-forward="true" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -601,13 +592,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="107">
           <caret line="70" column="10" selection-start-line="70" selection-start-column="10" selection-end-line="70" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/epics/createOfferFromCardEpic.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="24" column="2" lean-forward="true" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="2" />
         </state>
       </provider>
     </entry>
@@ -734,13 +718,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/map.test.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="3" selection-start-line="3" selection-end-line="13" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/redux/store.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -803,10 +780,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/epics/createOfferFromCardEpic.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="10" column="43" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/rxjs/testing/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/rxjs/src/internal/testing/TestScheduler.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/scheduler.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="4" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/switchMap.test.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/map.test.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/redux/epics/createOrderFromOfferEpic.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="49" selection-start-line="49" selection-end-line="49" />
+        <state relative-caret-position="333">
+          <caret line="50" column="35" selection-start-line="50" selection-start-column="19" selection-end-line="50" selection-end-column="35" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
@@ -815,12 +834,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/redux/epics/createOrderFromOfferEpic.test.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="90" column="81" selection-start-line="90" selection-start-column="81" selection-end-line="90" selection-end-column="81" />
+        <state relative-caret-position="78">
+          <caret line="77" column="31" lean-forward="true" selection-start-line="77" selection-start-column="31" selection-end-line="77" selection-end-column="31" />
           <folding>
             <element signature="e#0#30#0" expanded="true" />
-            <element signature="e#608#1027#0" />
-            <element signature="e#785#1204#0" />
           </folding>
         </state>
       </provider>

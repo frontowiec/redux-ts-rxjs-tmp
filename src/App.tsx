@@ -1,13 +1,13 @@
 /*tslint:disable:jsx-no-lambda*/
+import {CardItem, createCard, Item} from "@redux/modules/card";
+import {acceptOfferRequest, createOffer, rejectOfferRequest} from "@redux/modules/offer";
+import {generateCardItem} from "@redux/utilities";
 import {values} from 'lodash';
 import * as React from 'react';
 import {connect} from "react-redux";
 import {Dispatch} from "redux";
 import './App.css';
 import {RootState} from "./redux";
-import {generateCardItem} from "./redux/helpers";
-import {CardItem, createCard, Item} from "./redux/modules/card";
-import {acceptOfferRequest, createOffer, rejectOfferRequest} from "./redux/modules/offer";
 
 class App extends React.Component<StateProps & DispatchProps> {
     componentDidMount() {

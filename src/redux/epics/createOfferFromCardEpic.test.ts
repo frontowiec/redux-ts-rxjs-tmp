@@ -1,57 +1,44 @@
 import * as ajax from '@ajax';
 import {createOfferFromCardEpic$} from "@redux/epics/createOfferFromCardEpic";
-import {createdOffer, createdOfferFailure, createOffer, Offer, OfferStatus} from "@redux/modules/offer";
+import {createdOffer, createdOfferFailure, createOffer} from "@redux/modules/offer";
+import {it$} from "@redux/utilities/it";
+import {generateOffer} from "@redux/utilities/offerGenerator";
 import {of, throwError} from "rxjs";
-import {TestScheduler} from "rxjs/testing";
 
-it('should calculate rebate and shipping costs and create offer', () => {
-    const scheduler = new TestScheduler((actual, expected) => expect(actual).toEqual(expected));
-    scheduler.run(helpers => {
-        const {cold, hot, expectObservable} = helpers;
-        const offer: Offer = {
-          id: '1',
-          cardId: '2',
-          rebate: 10,
-          shippingCosts: 10,
-          total: 100,
-          status: OfferStatus.ACCEPTED
-        };
-        const actions = {
-            a: createOffer(),
-            x: createdOffer(offer)
-        };
-        const state$: any = of({purchaser: {id: '321'}, card: {id: '2'}});
+// celem testów epicowych jest sprawdzenie poprawności orkietracji akcji
 
-        // @ts-ignore
-        ajax.getJSON = () => cold('-a', {a: 10});
-        // @ts-ignore
-        ajax.postJSON = () => cold('-a', {a: offer});
+it$('should calculate rebate and shipping costs and create offer', ({cold, hot, expectObservable}) => {
+    const offer = generateOffer();
+    const actions = {
+        a: createOffer(),
+        x: createdOffer(offer)
+    };
+    const state$: any = of({purchaser: {id: '321'}, card: {id: '2'}});
 
-        const source$: any = hot('-a', actions);
-        const results = createOfferFromCardEpic$(source$, state$, {});
+    // @ts-ignore
+    ajax.getJSON = () => cold('-a', {a: 10});
+    // @ts-ignore
+    ajax.postJSON = () => cold('-a', {a: offer});
 
-        expectObservable(results).toBe('---x', actions);
-    })
+    const source$: any = hot('-a', actions);
+    const results = createOfferFromCardEpic$(source$, state$, {});
+
+    expectObservable(results).toBe('---x', actions);
 });
 
-it('should dispatch event on create offer failure', () => {
-    const scheduler = new TestScheduler((actual, expected) => expect(actual).toEqual(expected));
+it$('should dispatch event on create offer failure', ({hot, cold, expectObservable}) => {
+    const actions = {
+        a: createOffer(),
+        x: createdOfferFailure({})
+    };
+    const state$: any = of({purchaser: {id: '321'}, card: {id: '2'}});
+    // @ts-ignore
+    ajax.getJSON = () => cold('-a', {a: 10});
+    // @ts-ignore
+    ajax.postJSON = () => throwError({});
 
-    scheduler.run(helpers => {
-        const {hot, cold, expectObservable} = helpers;
-        const actions = {
-            a: createOffer(),
-            x: createdOfferFailure({})
-        };
-        const state$: any = of({purchaser: {id: '321'}, card: {id: '2'}});
-        // @ts-ignore
-        ajax.getJSON = () => cold('-a', {a: 10});
-        // @ts-ignore
-        ajax.postJSON = () => throwError({});
+    const source$: any = hot('-a', actions);
+    const results = createOfferFromCardEpic$(source$, state$, {});
 
-        const source$: any = hot('-a', actions);
-        const results = createOfferFromCardEpic$(source$, state$, {});
-
-        expectObservable(results).toBe('--x', actions);
-    })
+    expectObservable(results).toBe('--x', actions);
 });

@@ -9,11 +9,11 @@ import {
     createOrder, inProgressStatusOrder,
     OrderStatus
 } from "@redux/modules/order";
-import {it$} from "@redux/utilities/it";
+import {it} from "@redux/utilities/it";
 import {generateOrder} from "@redux/utilities/orderGenerator";
 import {of, throwError} from "rxjs";
 
-it$('should create order after accepting offer', ({hot, expectObservable}) => {
+it('should create order after accepting offer', ({hot, expectObservable}) => {
     const state: any = of({});
 
     const values = {
@@ -26,7 +26,7 @@ it$('should create order after accepting offer', ({hot, expectObservable}) => {
     expectObservable(result).toBe("-x", values)
 });
 
-it$('should create order', ({cold, hot, expectObservable}) => {
+it('should create order', ({cold, hot, expectObservable}) => {
     const order = generateOrder();
 
     // @ts-ignore
@@ -44,7 +44,7 @@ it$('should create order', ({cold, hot, expectObservable}) => {
     expectObservable(result).toBe("--(xy)", values);
 });
 
-it$('should check order status if order status was created', ({cold, hot, expectObservable}) => {
+it('should check order status if order status was created', ({cold, hot, expectObservable}) => {
     const orderInCreatedStatus = generateOrder();
     const orderId = orderInCreatedStatus.id;
 
@@ -65,7 +65,7 @@ it$('should check order status if order status was created', ({cold, hot, expect
     expectObservable(result).toBe("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------x", values);
 });
 
-it$('should check order status', ({cold, hot, expectObservable}) => {
+it('should check order status', ({cold, hot, expectObservable}) => {
     const orderInProgress = generateOrder(OrderStatus.IN_PROGRESS);
     const orderInCompleted = ({...orderInProgress, status: OrderStatus.COMPLETED});
     const orderId = orderInProgress.id;
@@ -84,7 +84,7 @@ it$('should check order status', ({cold, hot, expectObservable}) => {
     expectObservable(result).toBe("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------x", values);
 });
 
-it$('should check order status if order status is in progress', ({cold, hot, expectObservable}) => {
+it('should check order status if order status is in progress', ({cold, hot, expectObservable}) => {
     const orderInProgress = generateOrder(OrderStatus.IN_PROGRESS);
     const orderId = orderInProgress.id;
 
@@ -102,7 +102,7 @@ it$('should check order status if order status is in progress', ({cold, hot, exp
     expectObservable(result).toBe("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------x", values);
 });
 
-it$('should dispatch event on created action failure', ({hot, expectObservable}) => {
+it('should dispatch event on created action failure', ({hot, expectObservable}) => {
     // @ts-ignore
     ajax.postJSON = () => throwError({});
 
@@ -117,7 +117,7 @@ it$('should dispatch event on created action failure', ({hot, expectObservable})
     expectObservable(result).toBe("-x", values);
 });
 
-it$('should dispatch event on check order status failure', ({hot, expectObservable}) => {
+it('should dispatch event on check order status failure', ({hot, expectObservable}) => {
     const orderInProgress = generateOrder(OrderStatus.IN_PROGRESS);
     const orderId = orderInProgress.id;
 
